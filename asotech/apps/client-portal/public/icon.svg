@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="ASOTECH icon">
+  <title>ASOTECH</title>
+  <path d="M60 8 L112 100 H88 L60 50 L32 100 H8 Z" fill="#0B2F4F"/>
+  <rect x="42" y="78" width="12" height="22" rx="1.5" fill="#F3F6FA"/>
+  <rect x="60" y="66" width="12" height="34" rx="1.5" fill="#F3F6FA"/>
+  <rect x="78" y="54" width="12" height="46" rx="1.5" fill="#F3F6FA"/>
+  <path d="M4 82 C34 56 80 40 116 50 C84 44 44 60 20 92 Z" fill="#F28C1E"/>
+</svg>

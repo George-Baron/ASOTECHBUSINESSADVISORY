@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "types": [
+      "node"
+    ],
+    "incremental": false,
+    "noEmit": true,
+    "rootDir": "../..",
+    "typeRoots": [
+      "/opt/npm-tools/node_modules/@types"
+    ]
+  },
+  "include": [
+    "./stubs.d.ts",
+    "../../packages/**/*.ts",
+    "../../packages/**/*.tsx",
+    "../../apps/**/*.ts",
+    "../../apps/**/*.tsx"
+  ],
+  "exclude": [
+    "../../**/node_modules",
+    "../../**/.next",
+    "../../apps/**/next-env.d.ts"
+  ]
+}

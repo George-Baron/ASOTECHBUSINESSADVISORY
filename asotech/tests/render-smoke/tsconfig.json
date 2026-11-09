@@ -1,0 +1,2 @@
+{ "compilerOptions": { "jsx": "react-jsx", "module": "esnext", "moduleResolution": "bundler", "target": "es2022", "skipLibCheck": true,
+  "paths": { "@asotech/*": ["/home/claude/asotech/packages/*/src"] } } }

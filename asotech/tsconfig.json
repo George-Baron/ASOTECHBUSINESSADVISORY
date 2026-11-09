@@ -1,0 +1,68 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "ES2023"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    "strict": true,
+    "noUncheckedIndexedAccess": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowJs": false,
+    "noEmit": true,
+    "incremental": true,
+    "paths": {
+      "@asotech/types": [
+        "./packages/types/src/index.ts"
+      ],
+      "@asotech/validation": [
+        "./packages/validation/src/index.ts"
+      ],
+      "@asotech/utilities": [
+        "./packages/utilities/src/index.ts"
+      ],
+      "@asotech/configuration": [
+        "./packages/configuration/src/index.ts"
+      ],
+      "@asotech/business-logic": [
+        "./packages/business-logic/src/index.ts"
+      ],
+      "@asotech/ui": [
+        "./packages/ui/src/index.ts"
+      ],
+      "@asotech/supabase": [
+        "./packages/supabase/src/index.ts"
+      ],
+      "@asotech/business-logic/server": [
+        "./packages/business-logic/src/server.ts"
+      ],
+      "@asotech/supabase/server": [
+        "./packages/supabase/src/server.ts"
+      ],
+      "@asotech/supabase/browser": [
+        "./packages/supabase/src/browser.ts"
+      ],
+      "@asotech/supabase/middleware": [
+        "./packages/supabase/src/middleware.ts"
+      ],
+      "@asotech/supabase/auth": [
+        "./packages/supabase/src/auth.ts"
+      ],
+      "@asotech/supabase/callback": [
+        "./packages/supabase/src/callback.ts"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    ".next",
+    "**/.next"
+  ]
+}

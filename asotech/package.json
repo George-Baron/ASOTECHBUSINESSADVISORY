@@ -1,0 +1,32 @@
+{
+  "name": "asotech",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ASOTECH Business Advisory: corporate website, client portal, inventory SaaS and project management.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev:website": "npm run dev -w @asotech/website",
+    "dev:inventory": "npm run dev -w @asotech/inventory-app",
+    "dev:portal": "npm run dev -w @asotech/client-portal",
+    "dev:pm": "npm run dev -w @asotech/project-management",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "node --import tsx --test tests/unit/*.test.ts",
+    "test:db": "bash tests/integration/run-db-tests.sh",
+    "db:build": "bash database/build.sh",
+    "db:types": "supabase gen types typescript --local > packages/types/src/database.generated.ts",
+    "typecheck:stub": "tsc -p tests/typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

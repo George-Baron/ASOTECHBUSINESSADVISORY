@@ -1,0 +1,19 @@
+// Mirrors the CHECK constraints / enums in database/schema.sql.
+export const REQUEST_STATUSES = ["new", "in_review", "contacted", "scheduled", "proposal_sent", "won", "lost", "closed"] as const;
+export const PROJECT_STATUSES = ["planned", "active", "on_hold", "completed", "cancelled"] as const;
+export const STAGES = ["discovery", "design", "development", "testing", "deployment", "support"] as const;
+export const REQ_PRIORITIES = ["low", "medium", "high", "must"] as const;
+export const REQ_STATUSES = ["proposed", "agreed", "in_progress", "done", "dropped"] as const;
+export const MILESTONE_STAFF_STATUSES = ["pending", "in_progress", "done"] as const; // 'approved' is set by the client
+export const DELIVERABLE_KINDS = ["document", "design", "code", "build", "test_report", "training"] as const;
+export const DELIVERABLE_STAFF_STATUSES = ["pending", "in_review"] as const; // approved/changes_requested are client decisions
+export const TASK_STATUSES = ["todo", "in_progress", "blocked", "review", "done"] as const;
+export const QUOTE_STATUSES = ["draft", "sent", "accepted", "rejected", "expired"] as const;
+export const REPORT_TYPES = ["general", "audit", "reconciliation", "status", "final"] as const;
+export const SEVERITIES = ["low", "medium", "high", "critical"] as const;
+export const FINDING_STATUSES = ["open", "in_progress", "resolved", "accepted"] as const;
+export const ACTION_STATUSES = ["open", "in_progress", "done", "overdue"] as const;
+export const TICKET_STATUSES = ["open", "in_progress", "waiting_client", "resolved", "closed"] as const;
+export const MEMBER_ROLES = ["client", "viewer", "manager"] as const;
+export const DOC_VISIBILITY = ["client", "internal"] as const;
+export const BUCKET = "client-documents";
