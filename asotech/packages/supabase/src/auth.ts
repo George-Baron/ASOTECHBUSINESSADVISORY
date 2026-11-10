@@ -38,7 +38,19 @@ export async function signUp(formData: FormData) {
     email, password,
     options: { data: { full_name: fullName }, emailRedirectTo: `${origin}${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/auth/callback` },
   });
-  if (error) redirect(`/register?error=${enc("We could not create that account. Try signing in or resetting your password.")}`);
+  if (error) {
+    // Full detail goes to the server log (never to the browser); the visitor gets a safe, specific message where we know the cause.
+    console.error("[auth] signUp failed:", error.code ?? "", error.status ?? "", error.message);
+    const known: Record<string, string> = {
+      weak_password: "That password is too easy to guess. Choose a longer, less common one.",
+      email_address_invalid: "That email address was not accepted. Use a real address.",
+      signup_disabled: "New sign-ups are switched off at the moment. Please contact ASOTECH.",
+      over_email_send_rate_limit: "Too many emails were sent recently. Please wait a few minutes and try again.",
+      over_request_rate_limit: "Too many attempts. Please wait a few minutes and try again.",
+      user_already_exists: "An account with that email already exists. Try signing in or resetting your password.",
+    };
+    redirect(`/register?error=${enc(known[error.code ?? ""] ?? `We could not create that account. Try signing in or resetting your password. (Reason: ${error.code ?? "status " + (error.status ?? "unknown")}: ${String(error.message).slice(0, 140)})`)}`);
+  }
   if (data.session) redirect("/dashboard");
   redirect(`/login?notice=${enc("Check your email to confirm your account, then sign in.")}`);
 }
