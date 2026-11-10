@@ -7,7 +7,7 @@ import type { OrgRole } from "@asotech/types";
 /** Request-scoped client acting as the signed-in user: Row Level Security applies. */
 export async function createServer() {
   const store = await cookies();
-  return createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
+  return createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY)!, {
     cookies: {
       getAll: () => store.getAll(),
       setAll: (list: Array<{ name: string; value: string; options?: any }>) => {

@@ -18,3 +18,6 @@ Updated: 2026-11-09. Legend: DONE and checked, PARTIAL, TODO.
 | G | Final verification and packaging | DONE | 72 SQL assertions, 18 unit tests, stub typecheck clean, name sweep clean |
 
 "Unbuilt" means: written and type-checked against stubs, but `next build` has not been run because the npm registry is blocked in the build sandbox. Run `npm install && npm run build` on a normal machine as the first deployment step.
+
+## Update 2026-11-10: one-address layout
+Apps now served under /portal, /inventory, /staff (website at /). Gateway routes by path (tested). Base-path handling of sign-in redirects, emailed links, downloads, icons and org cookies changed in code and type-checked, but NOT yet tested in a browser.

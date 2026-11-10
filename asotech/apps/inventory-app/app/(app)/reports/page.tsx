@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BASE_PATH } from "@asotech/utilities";
 import { Card, PageHeader } from "@asotech/ui";
 import { ctx } from "../../../lib/ctx";
 import { NoAccess } from "../../../components/common";
@@ -19,7 +20,7 @@ export default async function ReportsHub() {
             <p className="mt-1 text-sm text-slate2">{r.description}</p>
             <div className="mt-4 flex gap-4 text-sm font-semibold">
               <Link className="text-navy underline" href={`/reports/${r.key}`}>View</Link>
-              <a className="text-navy underline" href={`/reports/export/${r.key}`}>Export CSV</a>
+              <a className="text-navy underline" href={`${BASE_PATH}/reports/export/${r.key}`}>Export CSV</a>
             </div>
           </Card>
         ))}

@@ -8,7 +8,7 @@ export async function switchOrg(fd: FormData) {
   const session = await requireSession();
   const id = field(fd, "organization_id");
   if (session.memberships.some((m) => m.organization_id === id)) {
-    (await cookies()).set(ORG_COOKIE_NAME, id, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: 60 * 60 * 24 * 365 });
+    (await cookies()).set(ORG_COOKIE_NAME, id, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: process.env.NEXT_PUBLIC_BASE_PATH || "/", maxAge: 60 * 60 * 24 * 365 });
   }
   redirect("/dashboard");
 }

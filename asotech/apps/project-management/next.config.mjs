@@ -6,7 +6,13 @@ const securityHeaders = [
   { key: "Permissions-Policy", value: "camera=(self), microphone=(), geolocation=()" },
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
 ];
+// Served under a path prefix on the shared address (www.asotech.com.ng/<prefix>). Set APP_BASE_PATH=/ to serve from the root
+// (for example when an app has its own domain). The value is fixed at build time.
+const rawBase = process.env.APP_BASE_PATH;
+const BASE_PATH = rawBase === undefined ? "/staff" : rawBase.replace(/\/+$/, "");
 const nextConfig = {
+  basePath: BASE_PATH,
+  env: { NEXT_PUBLIC_BASE_PATH: BASE_PATH },
   reactStrictMode: true,
   poweredByHeader: false,
   experimental: { serverActions: { bodySizeLimit: "8mb" } },

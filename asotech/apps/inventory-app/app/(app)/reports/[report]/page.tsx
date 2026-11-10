@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Alert, Button, DataTable, Input, PageHeader } from "@asotech/ui";
-import { formatQty } from "@asotech/utilities";
+import { formatQty, BASE_PATH } from "@asotech/utilities";
 import { ctx } from "../../../../lib/ctx";
 import { NoAccess } from "../../../../components/common";
 import { PrintButton } from "../../../../components/core-print-button";
@@ -21,7 +21,7 @@ export default async function ReportPage({ params, searchParams }: { params: Pro
   return (
     <>
       <PageHeader title={res.title} description={`${formatQty(res.rows.length)} rows`}
-        actions={<><PrintButton /><a className="rounded-lg bg-brand-orange px-3 py-1.5 text-sm font-semibold text-navy" href={`/reports/export/${report}${qs ? `?${qs}` : ""}`}>Export CSV</a><Link className="text-sm font-semibold text-navy underline" href="/reports">All reports</Link></>} />
+        actions={<><PrintButton /><a className="rounded-lg bg-brand-orange px-3 py-1.5 text-sm font-semibold text-navy" href={`${BASE_PATH}/reports/export/${report}${qs ? `?${qs}` : ""}`}>Export CSV</a><Link className="text-sm font-semibold text-navy underline" href="/reports">All reports</Link></>} />
       {report === "movements" && (
         <form className="no-print mb-4 flex flex-wrap items-end gap-3">
           <div><label htmlFor="from" className="mb-1 block text-xs font-semibold text-slate2">From</label><Input id="from" name="from" type="date" defaultValue={sp.from} /></div>

@@ -9,7 +9,7 @@ Lets warehouse staff scan or key counts in an AppSheet app while the count is re
 
 ## Request
 ```
-POST https://<inventory-app-domain>/api/integrations/appsheet/count
+POST https://www.asotech.com.ng/inventory/api/integrations/appsheet/count
 x-connection-id: <connection uuid>
 x-api-key: <key>
 Content-Type: application/json

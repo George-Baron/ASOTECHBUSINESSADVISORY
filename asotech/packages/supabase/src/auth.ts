@@ -36,7 +36,7 @@ export async function signUp(formData: FormData) {
   const sb = await createServer();
   const { data, error } = await sb.auth.signUp({
     email, password,
-    options: { data: { full_name: fullName }, emailRedirectTo: `${origin}/auth/callback` },
+    options: { data: { full_name: fullName }, emailRedirectTo: `${origin}${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/auth/callback` },
   });
   if (error) redirect(`/register?error=${enc("We could not create that account. Try signing in or resetting your password.")}`);
   if (data.session) redirect("/dashboard");
@@ -49,7 +49,7 @@ export async function requestPasswordReset(formData: FormData) {
   const origin = h.get("origin") ?? `https://${h.get("host")}`;
   if (email) {
     const sb = await createServer();
-    await sb.auth.resetPasswordForEmail(email, { redirectTo: `${origin}/auth/callback?next=/reset-password` });
+    await sb.auth.resetPasswordForEmail(email, { redirectTo: `${origin}${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/auth/callback?next=/reset-password` });
   }
   redirect(`/login?notice=${enc("If that email is registered, a reset link is on its way.")}`);
 }

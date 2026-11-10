@@ -81,3 +81,8 @@ export function csvToObjects(text: string): Array<Record<string, string>> {
   const keys = head.map((h) => h.trim().toLowerCase().replace(/\s+/g, "_"));
   return rest.map((r) => Object.fromEntries(keys.map((k, i) => [k, (r[i] ?? "").trim()])));
 }
+
+/** Path prefix this app is served under (e.g. "/portal"); "" when served from the root. Set by each app's next.config.mjs. */
+export const BASE_PATH: string = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+/** Prefix a root-relative path with the app's base path. Needed only for plain <a href>, redirects and cookies; <Link> and redirect() add it automatically. */
+export const withBase = (path: string): string => `${BASE_PATH}${path}`;

@@ -18,6 +18,6 @@ export async function createOrganisation(fd: FormData) {
     else if (error.code !== "23505") redirect(`/onboarding?error=${encodeURIComponent("Could not create the organisation. Please try again.")}`);
   }
   if (!id) redirect(`/onboarding?error=${encodeURIComponent("Could not create a unique organisation address. Try a slightly different name.")}`);
-  (await cookies()).set(ORG_COOKIE_NAME, id!, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: 60 * 60 * 24 * 365 });
+  (await cookies()).set(ORG_COOKIE_NAME, id!, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: process.env.NEXT_PUBLIC_BASE_PATH || "/", maxAge: 60 * 60 * 24 * 365 });
   redirect("/dashboard?notice=" + encodeURIComponent("Organisation created. Your 14-day trial has started."));
 }

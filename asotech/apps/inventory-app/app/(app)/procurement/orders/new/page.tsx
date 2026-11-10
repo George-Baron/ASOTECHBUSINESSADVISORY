@@ -1,4 +1,5 @@
 import { Alert, Button, Card, Field, Input, LinkButton, PageHeader, Select, Textarea } from "@asotech/ui";
+import { withBase } from "@asotech/utilities";
 import { ctx } from "../../../../../lib/ctx";
 import { Flash } from "../../../../../lib/flash";
 import { NoAccess } from "../../../../../components/common";
@@ -17,7 +18,7 @@ export default async function NewPoPage({ searchParams }: { searchParams: Promis
     <>
       <PageHeader title="New purchase order" actions={<LinkButton href="/procurement" variant="ghost" size="sm">Cancel</LinkButton>} />
       <Flash sp={sp} />
-      {suppliers.length === 0 ? <Alert tone="warn" title="Add a supplier first">Purchase orders need a supplier. <a className="font-semibold underline" href="/procurement/suppliers">Add one</a>.</Alert> : (
+      {suppliers.length === 0 ? <Alert tone="warn" title="Add a supplier first">Purchase orders need a supplier. <a className="font-semibold underline" href={withBase("/procurement/suppliers")}>Add one</a>.</Alert> : (
         <form action={createPurchaseOrder} className="space-y-6">
           <Card>
             <div className="grid gap-4 md:grid-cols-2">

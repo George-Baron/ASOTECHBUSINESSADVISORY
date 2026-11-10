@@ -2,12 +2,12 @@
 
 Corporate website, consulting service catalogue, inventory-management SaaS, client portal and staff project-management app. Next.js 15, TypeScript, Tailwind, Supabase/PostgreSQL. Tagline: *Control. Accuracy. Intelligence.*
 
-| App | Folder | Dev port | Audience |
-|---|---|---|---|
-| Website | `apps/website` | 3000 | Public |
-| Inventory SaaS | `apps/inventory-app` | 3001 | Client organisations |
-| Client portal | `apps/client-portal` | 3002 | Consulting clients |
-| Project management | `apps/project-management` | 3003 | ASOTECH staff |
+| App | Folder | Live address | Local address | Audience |
+|---|---|---|---|---|
+| Website | `apps/website` | `/` | localhost:3000 | Public |
+| Inventory SaaS | `apps/inventory-app` | `/inventory` | localhost:3001/inventory | Client organisations |
+| Client portal | `apps/client-portal` | `/portal` | localhost:3002/portal | Consulting clients |
+| Project management | `apps/project-management` | `/staff` | localhost:3003/staff | ASOTECH staff |
 
 Start here: `documentation/setup-guide.md`. Honest status: `documentation/implementation-status.md`. Progress log: `PROGRESS.md`.
 

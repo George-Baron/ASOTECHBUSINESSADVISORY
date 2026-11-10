@@ -25,14 +25,14 @@ export const CONTACT = {
 
 export const URLS = {
   website: process.env.NEXT_PUBLIC_WEBSITE_URL ?? "http://localhost:3000",
-  inventory: process.env.NEXT_PUBLIC_INVENTORY_URL ?? "http://localhost:3001",
-  portal: process.env.NEXT_PUBLIC_PORTAL_URL ?? "http://localhost:3002",
-  pm: process.env.NEXT_PUBLIC_PM_URL ?? "http://localhost:3003",
+  inventory: process.env.NEXT_PUBLIC_INVENTORY_URL ?? "http://localhost:3001/inventory",
+  portal: process.env.NEXT_PUBLIC_PORTAL_URL ?? "http://localhost:3002/portal",
+  pm: process.env.NEXT_PUBLIC_PM_URL ?? "http://localhost:3003/staff",
 } as const;
 
 export const SUPABASE_ENV = {
   url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-  anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
+  anonKey: (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) ?? "",
 } as const;
 
 export const DEFAULT_CURRENCY = "NGN";
